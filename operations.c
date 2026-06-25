@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:37:14 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/20 00:37:16 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:03:28 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ void	op_rr(t_stack *a, t_stack *b, t_bench *bench)
 	{
 		temp = a->top;
 		index = a->top;
-		while(index->next != NULL)
+		while (index->next != NULL)
 			index = index->next;
 		index->next = temp;
 		a->top = temp->next;
@@ -164,7 +164,7 @@ void	op_rr(t_stack *a, t_stack *b, t_bench *bench)
 	{
 		temp = b->top;
 		index = b->top;
-		while(index->next != NULL)
+		while (index->next != NULL)
 			index = index->next;
 		index->next = temp;
 		b->top = temp->next;

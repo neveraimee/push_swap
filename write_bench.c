@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 20:16:22 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/19 22:10:32 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:08:12 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static void write_disorder(double disorder)
     ft_putstr_fd("disorder: ", 2);
     ft_putnbr_fd(whole, 2);
     ft_putchar_fd('.', 2);
+	if (decimal < 10)
+		ft_putnbr_fd(0, 2);
     ft_putnbr_fd(decimal, 2);
     ft_putstr_fd("%\n", 2);
 }

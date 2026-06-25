@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+int ft_sqrt(int n)
+{
+	int i;
+
+	i = 1;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
+}
+
 void    freeit(char **array)
 {
     int i;

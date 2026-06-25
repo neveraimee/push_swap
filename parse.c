@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 23:44:28 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/20 01:48:52 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:37:10 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ t_stack  *parse_args(int ac, char **av)
 	t_stack	*stack;
 
 	stack = NULL;
-	if(ac < 2)
+	if (ac < 2)
         return (NULL);
 	array = avtoarray(ac, av);
 	if (!array)
