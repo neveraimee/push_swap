@@ -6,11 +6,35 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 18:41:30 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/24 19:35:14 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 16:28:29 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int find_max_position(t_stack *b)
+{
+    t_node  *tmp;
+    int     max;
+    int     pos;
+    int     max_pos;
+
+    tmp = b->top;
+    max = tmp->index;
+    pos = 0;
+    max_pos = 0;
+    while (tmp)
+    {
+        if (tmp->index > max)
+        {
+            max = tmp->index;
+            max_pos = pos;
+        }
+        pos++;
+        tmp = tmp->next;
+    }
+    return (max_pos);
+}
 
 static int find_max_index(t_stack *b)
 {
@@ -36,7 +60,7 @@ static void push_chunks(t_stack *a, t_stack *b, t_bench *bench)
     int i;
     int orignal_size;
 
-    chunk_size = (int)sqrt(a->size); //how big each chunk is, cast to int so not decimal by default
+    chunk_size = ft_sqrt(a->size); //how big each chunk is, cast to int so not decimal by default
     chunk_min = 0; //start of current chunk
     chunk_max = chunk_size; //end of current chunk
     while (stack_size(a)) //while a is not empty
@@ -59,13 +83,23 @@ static void push_chunks(t_stack *a, t_stack *b, t_bench *bench)
 static void pull_chunks(t_stack *a, t_stack *b, t_bench *bench)
 {
     int max;
+	int position;
 
     while (stack_size(b)) //while b has content
     {
         max = find_max_index(b); // max = biggest index
-        while (b->top->index != max) // while top is not biggest
-            op_rb(b, bench); //rotate
-        op_pa(a, b, bench); //then push back to a
+		position = find_max_position(b); // position in b 
+        if (position <= b->size / 2) // if position is less than half of stack size 
+        {
+            while (b->top->index != max)  // keep rotating until max is on top
+                op_rb(b, bench); // shift up all elements of stack b by one
+        }
+        else
+        {
+            while (b->top->index != max)  // keep rotating until max is on top
+                op_rrb(b, bench); // shift down all elements of stack b by one
+        }
+        op_pa(a, b, bench);
     }
 }
 

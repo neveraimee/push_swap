@@ -1,6 +1,0 @@
--gdwarf-4
--ILibft
--I.
--LLibft
--L.
--lft

@@ -6,11 +6,11 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:15:15 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/20 03:01:34 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 19:54:01 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#ifndef	PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
 # include <limits.h>
@@ -22,22 +22,22 @@
 
 typedef struct s_stack
 {
-    t_node  *top;
-    int     size;
+    t_node 	*top;
+    int		size;
 }   t_stack;
 
 typedef enum e_strategy
 {
-    ADAPTIVE,
-    SIMPLE,
-    MEDIUM,
-    COMPLEX
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
 }   t_strategy;
 
 typedef struct s_opts
 {
-    t_strategy  strategy;
-    int         bench;
+    t_strategy 	strategy;
+    int			bench;
 }   t_opts;
 
 typedef struct s_bench
@@ -89,6 +89,7 @@ int     is_sorted(t_stack *a);
 t_stack *create_stack(char **array);
 void    parse_flags(int ac, char **av, t_opts *opts);
 int     ft_strcmp(char *s1, char *s2);
+int		ft_sqrt(int n);
 void    freeit(char **array);
 void    index_nodes(t_stack *a);
 

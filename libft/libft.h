@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 23:04:13 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/20 01:11:01 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 19:54:43 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ typedef struct s_list
 
 typedef struct s_node
 {
-    int             value;
-    int             index;
-    struct s_node   *next;
+    int				value;
+    int				index;
+    struct s_node	*next;
 }   t_node;
 
 int		ft_isalnum(int c);
