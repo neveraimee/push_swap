@@ -10,7 +10,10 @@ INCLUDES = -I. -I$(LIBFT_DIR)
 
 SRCS = main.c \
        stack.c \
+	   stack2.c \
        operations.c \
+	   operations2.c \
+	   operations3.c \
        chunk_sort.c \
        adaptive_sort.c \
        write_bench.c \
