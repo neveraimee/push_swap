@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                     :+:      :+:    :+:   */
+/*   operations3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/19 23:42:11 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/19 23:42:13 by aimdoyle         ###   ########.fr       */
+/*   Created: 2026/06/25 20:50:34 by aimdoyle          #+#    #+#             */
+/*   Updated: 2026/06/26 19:27:50 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sqrt(int n)
+void	op_rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	int	i;
-
-	i = 1;
-	while (i * i <= n)
-		i++;
-	return (i - 1);
-}
-
-void	freeit(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-	return ;
+	if (bench)
+		bench->rrr++;
+	if (a && a->size >= 2)
+		op_rra(a, bench);
+	if (b && b->size >= 2)
+		op_rrb(b, bench);
+	write(1, "rrr\n", 4);
 }

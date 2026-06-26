@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 23:04:13 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 19:54:43 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 20:04:40 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct s_list
 
 typedef struct s_node
 {
-    int				value;
-    int				index;
-    struct s_node	*next;
-}   t_node;
+	int				value;
+	int				index;
+	struct s_node	*next;
+}	t_node;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -48,7 +48,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void    ft_lstadd_back(t_node **lst, t_node *new);
+void	ft_lstadd_back(t_node **lst, t_node *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));

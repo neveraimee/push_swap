@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:26:28 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/20 00:36:49 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 21:25:47 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	allocate_str(char const *s, char **array, int index)
 		sublen = 0;
 		while (ft_isspace(s[i]))
 			i++;
-	if (s[i] && !ft_isspace(s[i]))
+		if (s[i] && !ft_isspace(s[i]))
 		{
 			start = i;
 			while (s[i] != '\0' && !ft_isspace(s[i]))

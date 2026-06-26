@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 23:48:31 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 17:56:55 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/25 20:57:29 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	bubble_sort(t_stack *a, t_bench *bench)
 	i = 0;
 	while (i < a->size)
 	{
-		while (a->size > i + 1 && !stack_is_sorted(a)) 
+		while (a->size > i + 1 && !stack_is_sorted(a))
 		{
 			tmp = a->top;
 			if (tmp->value > tmp->next->value)
