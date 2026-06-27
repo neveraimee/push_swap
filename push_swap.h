@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:15:15 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/26 19:25:33 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/27 21:30:18 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ typedef struct s_bench
 	int	rrr;
 }	t_bench;
 
+typedef struct s_clean
+{
+	t_stack	*a;
+	t_bench	*bench;
+}	t_clean;
+
 t_stack	*stack_new(void);
 void	stack_push(t_stack *s, int value, int index);
 t_node	stack_pop(t_stack *s);
@@ -83,11 +89,11 @@ char	**avtoarray(int ac, char **av);
 t_stack	*parse_args(int ac, char **av, t_bench *bench);
 void	exit_error(char **array, t_bench *bench, t_stack *a);
 void	isvalid(char **array, t_bench *bench);
-void	isdouble(char **array, t_bench *bench);
+void	check_duplicates(t_stack *stack, char **array, t_bench *bench);
 double	compute_disorder(t_stack *a);
 int		is_sorted(t_stack *a);
 t_stack	*create_stack(char **array, t_bench *bench);
-void	parse_flags(int ac, char **av, t_opts *opts, t_stack *a, t_bench *bench);
+void	parse_flags(int ac, char **av, t_opts *opts, t_clean *data);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_sqrt(int n);
 void	freeit(char **array);
@@ -99,5 +105,9 @@ void	radix_sort(t_stack *a, t_bench *bench);
 void	adaptive_sort(t_stack *a, t_bench *bench);
 
 void	write_bench(t_bench *bench, double disorder, t_opts *opts);
+
+void	choosealg(t_opts opts, t_bench *bench, double disorder, t_stack *a);
+void	assign_values(t_opts *opts, t_clean *data, t_stack *a, t_bench *bench);
+int		init_data(t_bench **bench, t_clean **data);
 
 #endif

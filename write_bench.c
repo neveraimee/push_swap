@@ -6,13 +6,13 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 20:16:22 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 20:46:26 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/26 21:11:24 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	write_each_op(char *operation, int count) //for norm compilance 
+static void	write_each_op(char *operation, int count)
 {
 	ft_putstr_fd(operation, 2);
 	ft_putnbr_fd(count, 2);
@@ -50,17 +50,25 @@ static void	write_disorder(double disorder)
 	ft_putstr_fd("%\n", 2);
 }
 
-static void	write_strategy(t_opts *opts)
+static void	write_strategy(t_opts *opts, double disorder)
 {
 	ft_putstr_fd("strategy: ", 2);
 	if (opts->strategy == ADAPTIVE)
-		ft_putstr_fd("ADAPTIVE\n", 2);
+	{
+		ft_putstr_fd("ADAPTIVE -> ", 2);
+		if (disorder < 0.2)
+			ft_putstr_fd("SIMPLE / O(n²)\n", 2);
+		else if (disorder > 0.2 && disorder < 0.5)
+			ft_putstr_fd("MEDIUM / O(n√n)\n", 2);
+		else if (disorder > 0.5)
+			ft_putstr_fd("COMPLEX / O(nlogn)\n", 2);
+	}
 	else if (opts->strategy == SIMPLE)
-		ft_putstr_fd("SIMPLE\n", 2);
+		ft_putstr_fd("SIMPLE / O(n²)\n", 2);
 	else if (opts->strategy == MEDIUM)
-		ft_putstr_fd("MEDIUM\n", 2);
+		ft_putstr_fd("MEDIUM / O(n√n)\n", 2);
 	else if (opts->strategy == COMPLEX)
-		ft_putstr_fd("COMPLEX\n", 2);
+		ft_putstr_fd("COMPLEX / O(nlogn)\n", 2);
 }
 
 void	write_bench(t_bench *bench, double disorder, t_opts *opts)
@@ -72,7 +80,7 @@ void	write_bench(t_bench *bench, double disorder, t_opts *opts)
 		+ bench->ra + bench->rb + bench->rr
 		+ bench->rra + bench->rrb + bench->rrr;
 	write_disorder(disorder);
-	write_strategy(opts);
+	write_strategy(opts, disorder);
 	ft_putstr_fd("total operations: ", 2);
 	ft_putnbr_fd(total, 2);
 	ft_putchar_fd('\n', 2);
