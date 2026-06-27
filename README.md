@@ -86,6 +86,7 @@ Measures the disorder, then selects the most appropriate algorithm:
 ### References
 - [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort)
 - [Big O Notation](https://en.wikipedia.org/wiki/Big_O_notation)
+- [Sorting Algorithim Video](https://www.youtube.com/watch?v=h1Bi0granxM)
 
 ### AI Usage
 Claude AI was used throughout this project to:

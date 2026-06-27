@@ -77,23 +77,22 @@ void	isvalid(char **array, t_bench *bench)
 	return ;
 }
 
-void	isdouble(char **array, t_bench *bench)
+void	check_duplicates(t_stack *stack, char **array, t_bench *bench)
 {
-	int	i;
-	int	j;
+	t_node	*outer;
+	t_node	*inner;
 
-	i = 0;
-	j = 0;
-	while (array[i + 1])
+	outer = stack->top;
+	while (outer)
 	{
-		j = i + 1;
-		while (array[j])
+		inner = outer->next;
+		while (inner)
 		{
-			if (!ft_strcmp(array[i], array[j]))
-				exit_error(array, bench, NULL);
-			j++;
+			if (inner->value == outer->value)
+				exit_error(array, bench, stack);
+			inner = inner->next;
 		}
-		i++;
+		outer = outer->next;
 	}
 }
 
@@ -110,7 +109,6 @@ t_stack	*parse_args(int ac, char **av, t_bench *bench)
 		return (NULL);
 	if (!array[0])
 		exit_error(array, bench, NULL);
-	isdouble(array, bench);
 	isvalid(array, bench);
 	stack = create_stack(array, bench);
 	freeit(array);
