@@ -45,7 +45,7 @@ make
 ### Verify With Checker
 ```bash
 ARG="5 3 1 4 2"
-./push_swap $ARG | ./checker $ARG
+./push_swap $ARG | ./checker_linux $ARG
 ```
 
 ## Algorithms
