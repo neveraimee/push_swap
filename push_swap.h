@@ -108,6 +108,5 @@ void	write_bench(t_bench *bench, double disorder, t_opts *opts);
 
 void	choosealg(t_opts opts, t_bench *bench, double disorder, t_stack *a);
 void	assign_values(t_opts *opts, t_clean *data, t_stack *a, t_bench *bench);
-int		init_data(t_bench **bench, t_clean **data);
 
 #endif

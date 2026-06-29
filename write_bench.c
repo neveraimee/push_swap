@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 20:16:22 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/26 21:11:24 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 00:10:57 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	write_strategy(t_opts *opts, double disorder)
 		ft_putstr_fd("ADAPTIVE -> ", 2);
 		if (disorder < 0.2)
 			ft_putstr_fd("SIMPLE / O(n²)\n", 2);
-		else if (disorder > 0.2 && disorder < 0.5)
+		else if (disorder >= 0.2 && disorder < 0.5)
 			ft_putstr_fd("MEDIUM / O(n√n)\n", 2);
-		else if (disorder > 0.5)
+		else if (disorder >= 0.5)
 			ft_putstr_fd("COMPLEX / O(nlogn)\n", 2);
 	}
 	else if (opts->strategy == SIMPLE)

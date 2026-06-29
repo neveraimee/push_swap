@@ -34,41 +34,27 @@ void	assign_values(t_opts *opts, t_clean *data, t_stack *a, t_bench *bench)
 	data->bench = bench;
 }
 
-int	init_data(t_bench **bench, t_clean **data)
-{
-	*bench = malloc(sizeof(t_bench));
-	if (!*bench)
-		return (1);
-	*data = malloc(sizeof(t_clean));
-	if (!*data)
-	{
-		free(*bench);
-		return (1);
-	}
-	ft_memset(*bench, 0, sizeof(t_bench));
-	return (0);
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_opts	opts;
 	t_bench	*bench;
-	t_clean	*data;
+	t_clean	data;
 	double	disorder;
 
-	if (init_data(&bench, &data))
+	bench = malloc(sizeof(t_bench));
+	if (!bench)
 		return (1);
+	ft_memset(bench, 0, sizeof(t_bench));
 	a = parse_args(ac, av, bench);
 	if (!a)
 	{
 		free(bench);
-		free(data);
 		return (0);
 	}
 	disorder = compute_disorder(a);
-	assign_values(&opts, data, a, bench);
-	parse_flags(ac, av, &opts, data);
+	assign_values(&opts, &data, a, bench);
+	parse_flags(ac, av, &opts, &data);
 	choose_alg(opts, bench, disorder, a);
 	stack_free(a);
 	free(bench);

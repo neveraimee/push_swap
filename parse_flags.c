@@ -73,7 +73,6 @@ void	parse_flags(int ac, char **av, t_opts *opts, t_clean *data)
 
 	a = data->a;
 	bench = data->bench;
-	free(data);
 	i = 0;
 	while (++i < ac && av[i][0] == '-' && av[i][1] == '-')
 	{
