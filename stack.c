@@ -6,17 +6,11 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:36:38 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 23:36:39 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 03:05:16 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 t_stack	*stack_new(void)
 {
