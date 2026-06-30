@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_sort.c                                    :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/19 19:52:21 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/29 19:07:05 by aimdoyle         ###   ########.fr       */
+/*   Created: 2026/06/29 17:36:10 by aimdoyle          #+#    #+#             */
+/*   Updated: 2026/06/29 18:22:40 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	adaptive_sort(t_stack *a, t_bench *bench)
+void	exit_error(char **array, t_bench *bench, t_stack *a)
 {
-	double	disorder;
-
-	if (a->size < 2)
-		return ;
-	if (a->size <= 5)
+	if (array)
 	{
-		small_sort(a, bench);
-		return ;
+		freeit(array);
 	}
-	disorder = compute_disorder(a);
-	if (disorder < 0.2)
-		bubble_sort(a, bench);
-	else if (disorder < 0.5)
-		chunk_sort(a, bench);
-	else
-		radix_sort(a, bench);
+	stack_free(a);
+	free(bench);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	freeit(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return ;
+}
+
+void	stack_free(t_stack *s)
+{
+	if (!s)
+		return ;
+	while (s->top)
+		stack_pop(s);
+	free (s);
 }

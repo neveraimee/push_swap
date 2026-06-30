@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 23:44:28 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/29 02:54:35 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:36:32 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,6 @@ char	**avtoarray(int ac, char **av)
 		array[j] = NULL;
 	}
 	return (array);
-}
-
-void	exit_error(char **array, t_bench *bench, t_stack *a)
-{
-	if (array)
-	{
-		freeit(array);
-	}
-	stack_free(a);
-	free(bench);
-	write(2, "Error\n", 6);
-	exit(1);
 }
 
 void	isvalid(char **array, t_bench *bench)
