@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 21:21:18 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 23:38:08 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:38:29 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,6 @@ int	stack_is_sorted(t_stack *s)
 		current = current->next;
 	}
 	return (1);
-}
-
-void	stack_free(t_stack *s)
-{
-	if (!s)
-		return ;
-	while (s->top)
-		stack_pop(s);
-	free (s);
 }
 
 int	stack_size(t_stack *s)

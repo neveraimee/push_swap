@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 00:36:38 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/29 03:05:16 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:43:10 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,16 @@ t_node	stack_pop(t_stack *s)
 	free(temp);
 	s->size--;
 	return (result);
+}
+
+t_node	*ps_lstnew(int content)
+{
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (new == NULL)
+		return (NULL);
+	new->value = content;
+	new->next = NULL;
+	return (new);
 }

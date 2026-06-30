@@ -6,7 +6,7 @@
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 23:37:23 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/25 20:57:10 by aimdoyle         ###   ########.fr       */
+/*   Updated: 2026/06/29 18:32:37 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,6 @@ double	compute_disorder(t_stack *a)
 	if (total_pairs == 0)
 		return (0.0);
 	return ((double)mistakes / total_pairs);
-}
-
-int	is_sorted(t_stack *a)
-{
-	double	disorder;
-
-	disorder = compute_disorder(a);
-	if (disorder != 0)
-		return (0);
-	return (1);
 }
 
 void	index_nodes(t_stack *a)

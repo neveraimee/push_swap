@@ -21,9 +21,12 @@ SRCS = main.c \
        radix_sort.c \
        disorder.c \
        parse.c \
-       parse_flags.c \
+       flags.c \
        split.c \
-       helper.c
+	   build.c \
+	   free_utils.c \
+	   utils.c \
+	   small_sort.c
 
 OBJS = $(SRCS:.c=.o)
 

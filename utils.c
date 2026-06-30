@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aimdoyle <aimdoyle@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/19 23:42:11 by aimdoyle          #+#    #+#             */
-/*   Updated: 2026/06/19 23:42:13 by aimdoyle         ###   ########.fr       */
+/*   Created: 2026/06/29 17:44:02 by aimdoyle          #+#    #+#             */
+/*   Updated: 2026/06/29 17:46:42 by aimdoyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,14 @@ int	ft_sqrt(int n)
 	return (i - 1);
 }
 
-void	freeit(char **array)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	while (array[i])
+	while (s1[i] != '\0' && s1[i] == s2[i])
 	{
-		free(array[i]);
 		i++;
 	}
-	free(array);
-	return ;
+	return (s1[i] - s2[i]);
 }
